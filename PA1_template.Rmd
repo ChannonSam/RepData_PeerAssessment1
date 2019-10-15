@@ -2,9 +2,8 @@
 title: "Week 2 project"
 author: "Sam Channon-Wells"
 date: "15 October 2019"
-output:
-  pdf_document: default
-  html_document: default
+output: html_document
+  
 ---
 
 ```{r setup, include=FALSE}
