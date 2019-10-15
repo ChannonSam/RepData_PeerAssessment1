@@ -193,21 +193,9 @@ summary {
 <div id="step-1---load-and-view-the-data" class="section level2">
 <h2>Step 1 - Load and view the data:</h2>
 <p>Below we load in the data from a local file, and then view the first few rows.</p>
-<pre class="r"><code>library(dplyr); library(data.table);library(ggplot2)</code></pre>
-<pre><code>## 
-## Attaching package: 'dplyr'</code></pre>
-<pre><code>## The following objects are masked from 'package:stats':
-## 
-##     filter, lag</code></pre>
-<pre><code>## The following objects are masked from 'package:base':
-## 
-##     intersect, setdiff, setequal, union</code></pre>
-<pre><code>## 
-## Attaching package: 'data.table'</code></pre>
-<pre><code>## The following objects are masked from 'package:dplyr':
-## 
-##     between, first, last</code></pre>
-<pre class="r"><code>data &lt;- fread(&quot;repdata_data_activity/activity.csv&quot;)
+<pre class="r"><code>library(dplyr); library(data.table);library(ggplot2)
+
+data &lt;- fread(&quot;repdata_data_activity/activity.csv&quot;)
 head(data)</code></pre>
 <pre><code>##    steps       date interval
 ## 1:    NA 2012-10-01        0
@@ -338,17 +326,9 @@ print(paste0(&quot;The mean number of steps per day was: &quot;, steps.mean))</c
 </blockquote>
 <p>We perform the required steps in the chunk below, and the output should provide the necessary plot.</p>
 <pre class="r"><code># install.packages(&quot;lubridate&quot;)
-library(lubridate)</code></pre>
-<pre><code>## 
-## Attaching package: 'lubridate'</code></pre>
-<pre><code>## The following objects are masked from 'package:data.table':
-## 
-##     hour, isoweek, mday, minute, month, quarter, second, wday,
-##     week, yday, year</code></pre>
-<pre><code>## The following object is masked from 'package:base':
-## 
-##     date</code></pre>
-<pre class="r"><code>data.comp$date &lt;- as.Date(data.comp$date, format=&quot;%Y-%m-%d&quot;)
+library(lubridate)
+
+data.comp$date &lt;- as.Date(data.comp$date, format=&quot;%Y-%m-%d&quot;)
 data.comp$dow &lt;- weekdays(data.comp$date)
 data.comp$dow[data.comp$dow %in% c(&quot;Sunday&quot;, &quot;Saturday&quot;)] &lt;- &quot;weekend&quot;
 data.comp$dow[data.comp$dow != &quot;weekend&quot;] &lt;- &quot;weekday&quot;
